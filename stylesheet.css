@@ -69,6 +69,7 @@ p {
   color: #ffb8b8;
   font-weight: 600;
   padding: 10px;
+  height: 22px;
 }
 
 #spaceMap, #timeMap, #stats {
@@ -84,6 +85,10 @@ p {
 
 .Typewriter__cursor {
   display: none;
+}
+
+[contenteditable] {
+  outline: 0px solid transparent;
 }
 
 
