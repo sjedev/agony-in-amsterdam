@@ -1,4 +1,4 @@
-var currentRoom = "wspace"
+var currentRoom = "workspace"
 var textBox = document.getElementById('gameBox');
 var output = new Typewriter(textBox, {loop: false, delay: getDelay()});
 
@@ -15,44 +15,75 @@ function checkInput(e){
   }
 }
 
+function doTest(){
+  output.typeString("This is a test").start();
+}
+
+function doMove(moveDir){
+  switch (moveDir){
+    case "moveLeft":
+      switch (currentRoom){
+        case "workspace":
+          currentRoom = "detective"
+          output.typeString("<br><br><br><br>You have moved to the detective's office.").start();
+          break
+        case "detective":
+          currentRoom = "detective"
+          output.typeString("<br><br><br><br>You cannot move any farther left.").start();
+          break
+        case "interrogation":
+          currentRoom = "workspace"
+          output.typeString("<br><br><br><br>You have moved to your workspace.").start();
+          break
+      }
+      break
+    case "moveRight":
+      switch (currentRoom){
+        case "workspace":
+          currentRoom = "interrogation"
+          output.typeString("<br><br><br><br>You have moved to the interrogation room.").start();
+          break
+        case "interrogation":
+          currentRoom = "interrogation"
+          output.typeString("<br><br><br><br>You cannot move any farther right.").start();
+          break
+        case "detective":
+          currentRoom = "workspace"
+          output.typeString("<br><br><br><br>You have moved to your workspace.").start();
+          break
+      }
+      break
+  }
+}
+
 function parser(cmd){
   let commandWords = cmd.trim().toUpperCase().split(" ");
   switch (commandWords.length) {
     case 1:
-      switch (commandWords[0]) {
+      switch (commandWords[0]){
         case "TEST":
-          output.typeString("Test lol").start()
+          doTest()
           break
         case "LEFT":
-          switch (currentRoom) {
-            case "wspace":
-              currentRoom = "doffice"
-              output.typeString("You moved to Detective's office.").start()
-              break
-            case "doffice":
-              output.typeString("You cannot go any farther left.").start()
-              break
-            case "introom":
-              currentRoom = "wspace"
-              output.typeString("You moved to your workspace.").start()
-              break
-          }
+          doMove("moveLeft")
           break
         case "RIGHT":
-          switch (currentRoom) {
-            case "wspace":
-              currentRoom = "introom"
-              output.typeString("You moved to the interrogation room.").start()
+          doMove("moveRight")
+          break
+      }
+    break
+    case 2:
+      switch (commandWords[0]){
+        case "GO":
+          switch (commandWords[1]){
+            case "LEFT":
+              doMove("moveLeft")
               break
-            case "doffice":
-              currentRoom = "wspace"
-              output.typeString("You moved to your workspace.").start()
-              break
-            case "introom":
-              output.typeString("You cannot go any farther right.").start()
+            case "RIGHT":
+              doMove("moveRight")
               break
           }
-          break
+        break
       }
   }
 }
@@ -77,5 +108,4 @@ function intro(){
   .start();
 }
 
-// intro()
-location()
+//intro()
