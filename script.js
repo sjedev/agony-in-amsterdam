@@ -1,6 +1,7 @@
-var currentRoom = "workspace"
-var textBox = document.getElementById('gameBox');
-var output = new Typewriter(textBox, {loop: false, delay: getDelay()});
+let currentRoom = "workspace"
+let visited = [0, 0, 0] // rooms visited
+let textBox = document.getElementById('gameBox');
+let output = new Typewriter(textBox, {loop: false, delay: getDelay()});
 
 function getDelay(){
   return (Math.floor(Math.random() * (50 - 40 + 1) + 40));
@@ -19,21 +20,56 @@ function doTest(){
   output.typeString("This is a test").start();
 }
 
+function roomDesc(){
+  switch(currentRoom){
+    case "workspace":
+      if(visited[1] == 0){
+        output.typeString("<br><br>This is your <span style='color:#21b500'>workspace</span>. You can <span style='color:#028ecf'>watch</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>CCTV</span> captures available to the police or <span style='color:#028ecf'>review</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>report</span> again. You can go <span style='color:#cf2b02'>left</span> or <span style='color:#cf2b02'>right</span> to the <span style='color:#21b500'>detective’s office</span> or the <span style='color:#21b500'>interrogation room</span>, respectively.").start();
+        visited[1] = 1;
+      }
+      else {
+        output.typeString("<br><br>Welcome back to your <span style='color:#21b500'>workspace</span>. You can <span style='color:#028ecf'>watch CCTV</span> or <span style='color:#028ecf'>review</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>report</span> again.").start();
+      }
+      break
+    case "interrogation":
+      if(visited[2] == 0){
+        output.typeString("<br><br>This is the <span style='color:#21b500'>interrogation room</span>. You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>read</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, and choose a suspect to <span style='color:#028ecf'>interrogate</span>. You can go <span style='color:#cf2b02'>left</span> to return to your <span style='color:#21b500'>workspace</span> where you can consolidate your findings.").start();
+        visited[2] = 1;
+      }
+      else {
+        output.typeString("<br><br>You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>read</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, or choose a suspect to <span style='color:#028ecf'>interrogate</span>.").start();
+      }
+      break
+    case "detective":
+      if(visited[0] == 0){
+        output.typeString("<br><br>This is the <span style='color:#21b500'>detective’s office</span>. Once you are certain of the perpetrator, you can <span style='color:#028ecf'>accuse</span> them so the detective can press charges. You can go <span style='color:#cf2b02'>right</span> to return to your <span style='color:#21b500'>workspace</span> where you can gather more information about the case.").start();
+        visited[0] = 1;
+      }
+      else {
+        output.typeString("<br><br>Once you are certain of the perpetrator, you can <span style='color:#028ecf'>accuse</span> them so the detective can press charges.").start();
+      }
+      break
+  }
+}
+
 function doMove(moveDir){
   switch (moveDir){
     case "moveLeft":
       switch (currentRoom){
         case "workspace":
           currentRoom = "detective"
-          output.typeString("<br><br><br><br>You have moved to the detective's office.").start();
+          output.typeString("<br><br><br><br>You have moved to the <span style='color:#21b500'>detective's office</span>.").start();
+          roomDesc()
           break
         case "detective":
           currentRoom = "detective"
           output.typeString("<br><br><br><br>You cannot move any farther left.").start();
+          roomDesc()
           break
         case "interrogation":
           currentRoom = "workspace"
-          output.typeString("<br><br><br><br>You have moved to your workspace.").start();
+          output.typeString("<br><br><br><br>You have moved to your <span style='color:#21b500'>workspace</span>.").start();
+          roomDesc()
           break
       }
       break
@@ -41,15 +77,18 @@ function doMove(moveDir){
       switch (currentRoom){
         case "workspace":
           currentRoom = "interrogation"
-          output.typeString("<br><br><br><br>You have moved to the interrogation room.").start();
+          output.typeString("<br><br><br><br>You have moved to the <span style='color:#21b500'>interrogation room</span>.").start();
+          roomDesc()
           break
         case "interrogation":
           currentRoom = "interrogation"
           output.typeString("<br><br><br><br>You cannot move any farther right.").start();
+          roomDesc()
           break
         case "detective":
           currentRoom = "workspace"
-          output.typeString("<br><br><br><br>You have moved to your workspace.").start();
+          output.typeString("<br><br><br><br>You have moved to your <span style='color:#21b500'>workspace</span>.").start();
+          roomDesc()
           break
       }
       break
@@ -103,9 +142,10 @@ function intro(){
   .pauseFor(1000)
   .typeString("<br><br>Amsterdam was never his destination, ")
   .pauseFor(600)
-  .typeString("<span style='color:#b50000'>yet here he lied.</span>")
+  .typeString("<span style='color:#cf2b02'>yet here he lied.</span><br><br>")
   .pauseFor(3000)
   .start();
+  roomDesc();
 }
 
 //intro()
