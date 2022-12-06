@@ -1,4 +1,6 @@
 let currentRoom = "workspace"
+let currentTime = 1
+let moves = 0
 let visited = [0, 0, 0] // rooms visited
 let textBox = document.getElementById('gameBox');
 let output = new Typewriter(textBox, {loop: false, delay: getDelay()});
@@ -14,6 +16,21 @@ function checkInput(e){
     parser(command);
     e.preventDefault();
   }
+}
+
+function doMap(){
+  switch(currentRoom){
+    case "workspace":
+      spaceMapImg.innerHTML = "<img class='boxImg' src='images/workspace.png'>"
+      break
+    case "detective":
+      spaceMapImg.innerHTML = "<img class='boxImg' src='images/detective.png'>"
+      break
+    case "interrogation":
+      spaceMapImg.innerHTML = "<img class='boxImg' src='images/interrogation.png'>"
+      break
+  }
+  timeMapImg.innerHTML = "<img class='boxImg' src='images/time" + currentTime + ".png'>"
 }
 
 function doTest(){
@@ -52,7 +69,13 @@ function roomDesc(){
   }
 }
 
+function moveUp(){
+  moves += 1
+  stats.innerHTML = moves + " moves"
+}
+
 function doMove(moveDir){
+  moveUp()
   switch (moveDir){
     case "moveLeft":
       switch (currentRoom){
@@ -60,16 +83,19 @@ function doMove(moveDir){
           currentRoom = "detective"
           output.typeString("<br><br><br><br>You have moved to the <span style='color:#21b500'>detective's office</span>.").start();
           roomDesc()
+          doMap()
           break
         case "detective":
           currentRoom = "detective"
           output.typeString("<br><br><br><br>You cannot move any farther left.").start();
           roomDesc()
+          doMap()
           break
         case "interrogation":
           currentRoom = "workspace"
           output.typeString("<br><br><br><br>You have moved to your <span style='color:#21b500'>workspace</span>.").start();
           roomDesc()
+          doMap()
           break
       }
       break
@@ -79,16 +105,19 @@ function doMove(moveDir){
           currentRoom = "interrogation"
           output.typeString("<br><br><br><br>You have moved to the <span style='color:#21b500'>interrogation room</span>.").start();
           roomDesc()
+          doMap()
           break
         case "interrogation":
           currentRoom = "interrogation"
           output.typeString("<br><br><br><br>You cannot move any farther right.").start();
           roomDesc()
+          doMap()
           break
         case "detective":
           currentRoom = "workspace"
           output.typeString("<br><br><br><br>You have moved to your <span style='color:#21b500'>workspace</span>.").start();
           roomDesc()
+          doMap()
           break
       }
       break

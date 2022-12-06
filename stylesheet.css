@@ -60,6 +60,7 @@ p {
 
 #userInput{
   margin-top: 10px;
+  margin-bottom: 2px;
   font-size: 18px;
   background: #000;
   border: 1px solid #fff;
@@ -73,7 +74,21 @@ p {
 }
 
 #spaceMap, #timeMap, #stats {
-  text-align: right;
+  text-align: center;
+  background-color: #000;
+  border: 1px solid #fff;
+  filter: drop-shadow(0 0 0.75rem #000);
+  border-radius: 5px;
+  padding: 10px;
+  font-family: 'Space Grotesk', monospace;
+  color: #fff;
+  height: auto;
+  margin-bottom: 2vmin;
+}
+
+.boxImg {
+  width: 70%;
+  vertical-align: middle;
 }
 
 .footer {
