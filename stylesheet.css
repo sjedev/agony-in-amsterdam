@@ -3,24 +3,19 @@
 html {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
   background: #000;
   padding: 0;
   margin: 0;
-  /*background: linear-gradient(
-  90deg,
-  hsl(0deg 67% 18%) -1%,
-  hsl(0deg 67% 16%) -1%,
-  hsl(0deg 67% 14%) 4%,
-  hsl(0deg 67% 11%) 14%,
-  hsl(0deg 67% 8%) 32%,
-  hsl(0deg 0% 0%) 99%
-);*/
+  position: relative;
+  height: auto;
+  min-height: 100% !important;
 }
 
-.bgRed {
+#bgRed {
   position: absolute;
   background: linear-gradient(
   90deg,
@@ -36,14 +31,33 @@ body {
   margin: 0;
   padding: 0;
   opacity: 1;
-  transition: opacity 2s;
+  transition: opacity 2s ease;
 }
 
-.bgRed:hover {
+#bgBlue {
+  position: absolute;
+  background: linear-gradient(
+  90deg,
+  hsl(240deg 100% 12%) 0%,
+  hsl(240deg 100% 12%) -1%,
+  hsl(240deg 100% 12%) -1%,
+  hsl(240deg 100% 12%) -1%,
+  hsl(240deg 100% 12%) -2%,
+  hsl(240deg 100% 12%) -1%,
+  hsl(240deg 100% 11%) -1%,
+  hsl(240deg 100% 11%) 2%,
+  hsl(240deg 100% 11%) 10%,
+  hsl(0deg 0% 0%) 100%
+);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   opacity: 0;
+  transition: opacity 2s ease;
 }
 
-.bgWhite {
+#bgWhite {
   position: absolute;
   background: linear-gradient(
       90deg,
@@ -66,11 +80,7 @@ body {
   margin: 0;
   padding: 0;
   opacity: 0;
-  transition: opacity 2s;
-}
-
-.bgWhite:hover {
-  opacity: 1;
+  transition: opacity 2s ease;
 }
 
 .title {
@@ -141,6 +151,22 @@ p {
   margin-bottom: 2vmin;
 }
 
+.tBlue {
+  color: #028ecf;
+}
+
+.tGrey {
+  color: #7a7a7a;
+}
+
+.tRed {
+  color: #cf2b02
+}
+
+.tGreen {
+  color: #21b500;
+}
+
 .boxImg {
   width: 70%;
   vertical-align: middle;
@@ -149,8 +175,8 @@ p {
 .footer {
   opacity: 0.3;
   text-align: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 9px;
+  padding-bottom: 41px;
 }
 
 .Typewriter__cursor {
