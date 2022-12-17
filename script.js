@@ -51,16 +51,22 @@ function doBg(){
       document.getElementById("bgRed").style.opacity="1";
       document.getElementById("bgBlue").style.opacity="0";
       document.getElementById("bgWhite").style.opacity="0";
+      document.getElementById("colourBar").style.backgroundColor="#cf2b02";
+      document.getElementById("stats").style.color="#fff";
       break
     case "detective":
       document.getElementById("bgRed").style.opacity="0";
       document.getElementById("bgBlue").style.opacity="1";
       document.getElementById("bgWhite").style.opacity="0";
+      document.getElementById("colourBar").style.backgroundColor="#024acf";
+      document.getElementById("stats").style.color="#fff";
       break
     case "interrogation":
       document.getElementById("bgRed").style.opacity="0";
       document.getElementById("bgBlue").style.opacity="0";
       document.getElementById("bgWhite").style.opacity="1";
+      document.getElementById("colourBar").style.backgroundColor="#ffffff";
+      document.getElementById("stats").style.color="#000";
       break
   }
 }
@@ -305,12 +311,12 @@ function roomDesc(){
 
 function moveUp(){
   moves += 1
-  stats.innerHTML = moves + " moves<br>" + cmds + " commands"
+  stats.innerHTML = moves + " moves • " + cmds + " commands"
 }
 
 function cmdUp(){
   cmds += 1
-  stats.innerHTML = moves + " moves<br>" + cmds + " commands"
+  stats.innerHTML = moves + " moves • " + cmds + " commands"
 }
 
 function doMove(moveDir){
