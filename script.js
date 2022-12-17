@@ -5,6 +5,7 @@ let cmds = 0
 let person = 0
 let inCCTV = 0
 let timeVisited = [0, 0, 0, 0, 0, 0, 0, 0]
+let detectiveExtra = 0
 let visited = [0, 0, 0] // rooms visited
 let textBox = document.getElementById('gameBox');
 let output = new Typewriter(textBox, {loop: false, delay: 15});
@@ -222,7 +223,6 @@ function detective(action, scope = ""){
         break
       case "INFORM":
         output.typeString('<br><br><br><br>"Hmm, that is a good point. We will have to refer to this individual as <span class="tGreen">X</span> and will dedicate more resources to identifying them if we need to." the detective concludes. He is pleased with your findings, but urges you to keep working through the evidence available to you as not to waste police resources.')
-        detectiveExtra = 0
         break
     }
   }
