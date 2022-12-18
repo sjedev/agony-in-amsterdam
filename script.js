@@ -7,6 +7,7 @@ let inCCTV = 0
 let started = 0
 let timeVisited = [0, 0, 0, 0, 0, 0, 0, 0]
 let detectiveExtra = 0
+let audioEnabled = 1
 let visited = [0, 0, 0] // rooms visited
 let textBox = document.getElementById('gameBox');
 let output = new Typewriter(textBox, {loop: false, delay: 25});
@@ -42,6 +43,9 @@ function checkInput(e){
     userInput.innerHTML = ""
     e.preventDefault();
     doMove("moveRight")
+  }
+  if (audioEnabled == 1){
+    document.getElementById("startPb").style.display="none";
   }
 }
 
@@ -131,6 +135,7 @@ function doBg(){
         document.getElementById("bgSky").style.opacity="0";
         document.getElementById("colourBar").style.backgroundColor="#cf2b02";
         document.getElementById("stats").style.color="#fff";
+        document.getElementById("startPb").style.color="#fff";
         break
       case "detective":
         document.getElementById("bgRed").style.opacity="0";
@@ -141,6 +146,7 @@ function doBg(){
         document.getElementById("bgSky").style.opacity="0";
         document.getElementById("colourBar").style.backgroundColor="#024acf";
         document.getElementById("stats").style.color="#fff";
+        document.getElementById("startPb").style.color="#fff";
         break
       case "interrogation":
         document.getElementById("bgRed").style.opacity="0";
@@ -151,6 +157,7 @@ function doBg(){
         document.getElementById("bgSky").style.opacity="0";
         document.getElementById("colourBar").style.backgroundColor="#ffffff";
         document.getElementById("stats").style.color="#000";
+        document.getElementById("startPb").style.color="#000";
         break
     }
   }
@@ -596,3 +603,9 @@ output.typeString("<strong style='font-size:24pt'>AGONY IN AMSTERDAM</strong>")
   .typeString("<br>version 1.1 by @sjedev")
   .pauseFor(1000)
   .typeString("<br><br>Use <span class='tBlue'>start</span> to begin. You can skip the intro with <span class='tBlue'>skip</span>.").start()
+
+document.getElementById('startPb').addEventListener('click', () => {
+  document.getElementById("bgm").play();
+  document.getElementById("startPb").style.opacity="0";
+  audioEnabled = 1;
+});
