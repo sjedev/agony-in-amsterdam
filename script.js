@@ -4,11 +4,12 @@ let moves = 0
 let cmds = 0
 let person = 0
 let inCCTV = 0
+let started = 0
 let timeVisited = [0, 0, 0, 0, 0, 0, 0, 0]
 let detectiveExtra = 0
 let visited = [0, 0, 0] // rooms visited
 let textBox = document.getElementById('gameBox');
-let output = new Typewriter(textBox, {loop: false, delay: 15});
+let output = new Typewriter(textBox, {loop: false, delay: 25});
 
 let interrogations = [
   ["","","","",""],
@@ -491,6 +492,21 @@ function parser(cmd){
         case "FASTFORWARD":
           revFfw("FFW", "1")
           break
+        case "SKIP":
+          if (started != 1){
+            doMap();
+            roomDesc();
+            started = 1;
+            cmdUp()
+          }
+          break
+        case "START":
+          if (started != 1){
+            intro();
+            started = 1;
+            cmdUp()
+          }
+          break
         case "INFORM":
           detective("INFORM")
           break
@@ -555,11 +571,7 @@ function parser(cmd){
 }
 
 function intro(){
-  output.typeString("<strong style='font-size:24pt'>AGONY IN AMSTERDAM</strong>")
-  .pauseFor(200)
-  .typeString("<br>version 1.1 by @sjedev")
-  .pauseFor(2500)
-  .typeString("<br><br><br><br>The detective thanks you as you hang up the phone and flick on the TV for the local news. “A death in the square”, the headlines read. You have a job to do, so you quickly grab your jacket and cycle to the police station.")
+  output.typeString("<br><br><br><br>The detective thanks you as you hang up the phone and flick on the TV for the local news. “A death in the square”, the headlines read. You have a job to do, so you quickly grab your jacket and cycle to the police station.")
   .pauseFor(1000)
   .typeString("<br><br>You arrive hastily - the detective greets you at the entrance. “We don’t have much evidence to work with”, he mutters resignedly, “hopefully, we can count on you”. You offer to try your best before heading to your desk to read the report.")
   .pauseFor(3000)
@@ -576,4 +588,8 @@ function intro(){
   roomDesc();
 }
 
-intro()
+output.typeString("<strong style='font-size:24pt'>AGONY IN AMSTERDAM</strong>")
+  .pauseFor(200)
+  .typeString("<br>version 1.1 by @sjedev")
+  .pauseFor(1000)
+  .typeString("<br><br>Use <span class='tBlue'>start</span> to begin. You can skip the intro with <span class='tBlue'>skip</span>.").start()
