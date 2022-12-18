@@ -46,28 +46,112 @@ function checkInput(e){
 
 function doBg(){
   console.log(currentRoom)
-  switch(currentRoom){
-    case "workspace":
-      document.getElementById("bgRed").style.opacity="1";
-      document.getElementById("bgBlue").style.opacity="0";
-      document.getElementById("bgWhite").style.opacity="0";
-      document.getElementById("colourBar").style.backgroundColor="#cf2b02";
-      document.getElementById("stats").style.color="#fff";
-      break
-    case "detective":
-      document.getElementById("bgRed").style.opacity="0";
-      document.getElementById("bgBlue").style.opacity="1";
-      document.getElementById("bgWhite").style.opacity="0";
-      document.getElementById("colourBar").style.backgroundColor="#024acf";
-      document.getElementById("stats").style.color="#fff";
-      break
-    case "interrogation":
-      document.getElementById("bgRed").style.opacity="0";
-      document.getElementById("bgBlue").style.opacity="0";
-      document.getElementById("bgWhite").style.opacity="1";
-      document.getElementById("colourBar").style.backgroundColor="#ffffff";
-      document.getElementById("stats").style.color="#000";
-      break
+  if (inCCTV == 1){
+    switch (currentTime) {
+      case 1:
+        document.getElementById("bgRed").style.opacity="1";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#cf2b02";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 2:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="1";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#CF9902";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 3:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="1";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#28005c";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 4:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="1";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#CF9902";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 5:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="1";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#CF9902";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 6:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="1";
+        document.getElementById("colourBar").style.backgroundColor="#00d6e0";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case 7:
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="1";
+        document.getElementById("colourBar").style.backgroundColor="#00d6e0";
+        document.getElementById("stats").style.color="#fff";
+        break
+    }
+  } else {
+    switch(currentRoom){
+      case "workspace":
+        document.getElementById("bgRed").style.opacity="1";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#cf2b02";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case "detective":
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="1";
+        document.getElementById("bgWhite").style.opacity="0";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#024acf";
+        document.getElementById("stats").style.color="#fff";
+        break
+      case "interrogation":
+        document.getElementById("bgRed").style.opacity="0";
+        document.getElementById("bgBlue").style.opacity="0";
+        document.getElementById("bgWhite").style.opacity="1";
+        document.getElementById("bgOrange").style.opacity="0";
+        document.getElementById("bgPurple").style.opacity="0";
+        document.getElementById("bgSky").style.opacity="0";
+        document.getElementById("colourBar").style.backgroundColor="#ffffff";
+        document.getElementById("stats").style.color="#000";
+        break
+    }
   }
 }
 
@@ -110,6 +194,7 @@ function report(){
 
 function doFootage(){
   cmdUp()
+  doBg()
   output.typeString("<br><br><br><br>" + footage[currentTime]).start()
   if (currentTime == 5){
     detectiveExtra = 1
