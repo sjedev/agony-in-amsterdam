@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Space+Mono:wght@400;600');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&family=Space+Mono:wght@400;600');
 
 html {
   margin: 0;
@@ -15,15 +15,16 @@ body {
 }
 
 .wordmark {
-  margin-left: 10vw;
-  margin-bottom: 0;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
   filter: drop-shadow(0 0 0.75rem #000);
   font-family: 'Space Grotesk', monospace;
   color: #fff;
-  text-align: left;
+  text-align: center;
   font-size: 30pt;
   font-weight: 600;
   line-height: 1.1em;
@@ -33,7 +34,7 @@ h3 {
   filter: drop-shadow(0 0 0.75rem #000);
   font-family: 'Space Grotesk', monospace;
   color: #fff;
-  text-align: left;
+  text-align: center;
   font-size: 13pt;
   font-weight: 400;
   margin-top: -1.3em;
@@ -41,30 +42,22 @@ h3 {
 
 #statsHeader {
   filter: drop-shadow(0 0 0.75rem #000);
-  margin-top: 41px;
-  margin-right: 10vw;
-  margin-bottom: 0;
-  width: auto;
+  margin: 0 auto;
   color: #fff;
-  font-family: 'Space Grotesk', monospace;
-  float: right;
+  font-family: 'Space Mono', monospace;
 }
 
-#spaceMap {
-  float: left;
-}
-
-#spaceMapImg {
-  margin-right: 2em;
+#timeMap, #spaceMap {
+  display: flex;
+  justify-content: center;
 }
 
 .tabLabel {
-  padding-left: 1vw;
+  padding-right: 15px;
 }
 
 .boxImg {
-  height: 75px;
-  margin-left: 0.8em;
+  width: 30vmin;
 }
 
 #colourBar {
@@ -78,7 +71,7 @@ h3 {
 }
 
 #gameBox {
-  font-size: 16px;
+  font-size: 12pt;
   overflow-y: scroll;
   background-color: #000;
   border: 1px solid #fff;
@@ -87,7 +80,7 @@ h3 {
   padding: 10px;
   font-family: 'Space Mono', monospace;
   color: #fff;
-  height: 50vmin;
+  height: 45vh;
   overflow: auto;
   display: flex;
   flex-direction: column-reverse;
@@ -111,7 +104,7 @@ h3 {
 
 #stats {
   filter: drop-shadow(0 0 0.75rem #000);
-  margin-top: 50px;
+  margin-top: 30px;
   padding-bottom: 50px;
   font-size: 12pt;
   color: #fff;
@@ -121,9 +114,9 @@ h3 {
 }
 
 .gameWrapper {
-  margin-top: 60px;
-  margin-right: 22vw;
-  margin-left: 22vw;
+  margin-top: 30px;
+  margin-right: 10vw;
+  margin-left: 10vw;
 }
 
 #bgRed {
@@ -306,7 +299,7 @@ h3 {
 }
 
 /*  GO FULL WIDTH ON MOBILE */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1390px) {
 	.col {  margin: 1% 0 1% 0%; }
     
     .span_1_of_12, .span_2_of_12, .span_3_of_12, .span_4_of_12, .span_5_of_12, .span_6_of_12, .span_7_of_12, .span_8_of_12, .span_9_of_12, .span_10_of_12, .span_11_of_12, .span_12_of_12 {

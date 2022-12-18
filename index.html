@@ -6,50 +6,53 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
 
-  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" media="screen and (min-width: 1391px)" href="stylesheet.css" />
+  <link rel="stylesheet" media="screen and (max-width: 1390px)" href="mobile.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.19.0/core.min.js"></script>
 <script src="script.js" defer></script>
 </head>
 
 <body class="box">
-  <div id="bgRed"></div>
-  <div id="bgWhite"></div>
-  <div id="bgBlue"></div>
+  <div id="bgs">
+    <div id="bgRed"></div>
+    <div id="bgWhite"></div>
+    <div id="bgBlue"></div>
+    <div id="bgSky"></div>
+    <div id="bgPurple"></div>
+    <div id="bgOrange"></div>
+  </div>
   <div class="section group" id="header">
-    <div class="col span_12_of_12"> <!-- FULL-WIDTH HEADER -->
-      <h1 class="title">Agony in Amsterdam</h1>
-      <p class="subtitle" id="subtitle">A whodunit text adventure</p>
+    <div class="col span_5_of_12"><div class="wordmark">
+      <h1>Agony in Amsterdam</h1>
+      <h3>A whodunit text adventure</h3></div>
+    </div>
+    <div class="col span_7_of_12" id="statsHeader">
+      <table id="spaceMap">
+        <tr>
+          <td class="tabLabel">Location</td>
+          <td><div id="spaceMapImg">
+            <img class="boxImg" src="images/nospace.png">
+          </div></td>
+        </tr>
+      </table>
+      <table id="timeMap">
+        <tr>
+          <td class="tabLabel">Timeline</td>
+          <td><div id="timeMapImg">
+            <img class="boxImg" src="images/time0.png">
+          </div></td>
+        </tr>
+      </table>
     </div>
   </div>
-  <div class="section group" id="content">
-    <div class="col span_1_of_12"></div> <!-- PADDING -->
-    <div class="col span_7_of_12"> <!-- CLI -->
-      <div id="gameBox"></div>
-      <div id="userInput" contenteditable="true" onkeyup="checkInput(event)"></div>
+  <hr id="colourBar">
+  <div class="gameWrapper">
+    <div id="gameBox"></div>
+    <div id="userInput" contenteditable="true" onkeyup="checkInput(event)"></div>
+    <div id="stats">
+      0 moves • 0 commands
     </div>
-    <div class="col span_3_of_12"> <!-- STATS -->
-      <div id="spaceMap">
-        <b>Rooms</b><br>
-        <div id="spaceMapImg">
-          <img class="boxImg" src="images/nospace.png">
-        </div>
-      </div>
-      <div id="timeMap">
-        <b>Timeline</b><br>
-        <div id="timeMapImg">
-          <img class="boxImg" src="images/time0.png">
-        </div>
-      </div>
-      <div id="stats">
-        0 moves<br>0 commands
-      </div>
-      <div id="demo">
-        Refresh the page to return to the start
-      </div>
-    </div>
-    <div class="col span_1_of_12"></div> <!-- PADDING -->
   </div>
-  <p class="footer">A game by @sjedev<br><i>Made in 2022</i></p>
 </body>
 
 </html>
