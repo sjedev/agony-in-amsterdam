@@ -7,7 +7,7 @@ let inCCTV = 0
 let started = 0
 let timeVisited = [0, 0, 0, 0, 0, 0, 0, 0]
 let detectiveExtra = 0
-let audioEnabled = 1
+let audioEnabled = 0
 let visited = [0, 0, 0] // rooms visited
 let textBox = document.getElementById('gameBox');
 let output = new Typewriter(textBox, {loop: false, delay: 25});
@@ -313,10 +313,10 @@ function detective(action, scope = ""){
             }
           if (person != 5){
             document.getElementById("userInput").style.display="none";
-            output.typeString('<br><br><br><br>"...so it has to have been them" you proclaim confidently to the detective. He expresses his relief and shakes your hand before gather your notes and leave the police station. But as you are cycling home, a wave of doubt crosses your mind - was it really them?').pauseFor(1500).changeDelay(70).typeString("<br><br><span class='tRed'>No, the perpetrator was not who you accused.</span>").start()
+            output.typeString('<br><br><br><br>"...so it has to have been them" you proclaim confidently to the detective. He expresses his relief and shakes your hand before you gather your notes and leave the police station. But as you are cycling home, a wave of doubt crosses your mind - was it really them?').pauseFor(1500).changeDelay(70).typeString("<br><br><span class='tRed'>No, the perpetrator was not who you accused.</span>").start()
           } else {
             document.getElementById("userInput").style.display="none";
-            output.typeString('<br><br><br><br>"...so it has to have been them" you proclaim confidently to the detective. He expresses his relief and shakes your hand before gather your notes and leave the police station. But as you are cycling home, a wave of doubt crosses your mind - was it really them?').pauseFor(1500).changeDelay(70).typeString("<br><br><span class='tGreen'>Yes, you successfully identified the perpetrator.</span>").start()
+            output.typeString('<br><br><br><br>"...so it has to have been them" you proclaim confidently to the detective. He expresses his relief and shakes your hand before you gather your notes and leave the police station. But as you are cycling home, a wave of doubt crosses your mind - was it really them?').pauseFor(1500).changeDelay(70).typeString("<br><br><span class='tGreen'>Yes, you successfully identified the perpetrator.</span>").start()
           }
         }
         break
