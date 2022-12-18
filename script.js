@@ -322,7 +322,7 @@ function detective(action, scope = ""){
         break
       case "INFORM":
         if (detectiveExtra = 1){
-          output.typeString('<br><br><br><br>"Hmm, that is a good point. We will have to refer to this individual as <span class="tGreen">X</span> and will dedicate more resources to identifying them if we need to." the detective concludes. He is pleased with your findings, but urges you to keep working through the evidence available to you as not to waste police resources.')
+          output.typeString('<br><br><br><br>"Hmm, that is a good point. We will have to refer to this individual as <span class="tGreen">X</span> and will dedicate more resources to identifying them if we need to." the detective concludes. He is pleased with your findings, but urges you to keep working through the evidence available to you as not to waste police resources.').start()
           detectiveExtra = 0
         }
         break
@@ -383,11 +383,11 @@ function roomDesc(){
       break
     case "interrogation":
       if(visited[2] == 0){
-        output.typeString("<br><br>This is the <span style='color:#21b500'>interrogation room</span>. You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>read</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, and choose a suspect to <span style='color:#028ecf'>interrogate</span>. You can go <span style='color:#cf2b02'>left</span> to return to your <span style='color:#21b500'>workspace</span> where you can consolidate your findings.").start();
+        output.typeString("<br><br>This is the <span style='color:#21b500'>interrogation room</span>. You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, and choose a suspect to <span style='color:#028ecf'>interrogate</span>. You can go <span style='color:#cf2b02'>left</span> to return to your <span style='color:#21b500'>workspace</span> where you can consolidate your findings.").start();
         visited[2] = 1;
       }
       else {
-        output.typeString("<br><br>You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>read</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, or choose a suspect to <span style='color:#028ecf'>interrogate</span>.").start();
+        output.typeString("<br><br>You can <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>suspects</span>, <span style='color:#028ecf'>list</span><span style='color:#7a7a7a'> the </span><span style='color:#028ecf'>questions</span>, or choose a suspect to <span style='color:#028ecf'>interrogate</span>.").start();
       }
       break
     case "detective":
