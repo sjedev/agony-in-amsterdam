@@ -605,7 +605,7 @@ function intro(){
 
 output.typeString("<strong style='font-size:24pt'>AGONY IN AMSTERDAM</strong>")
   .pauseFor(200)
-  .typeString("<br>version 1.1 by @sjedev")
+  .typeString("<br>version 1.2 by @sjedev")
   .pauseFor(1000)
   .typeString("<br><br>Use <span class='tBlue'>start</span> to begin. You can skip the intro with <span class='tBlue'>skip</span>.").start()
 
