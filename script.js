@@ -318,7 +318,7 @@ function detective(action, scope = ""){
           } else {
             document.getElementById("userInput").style.display="none";
             output.typeString('<br><br><br><br>"...so it has to have been them" you proclaim confidently to the detective. He expresses his relief and shakes your hand before you gather your notes and leave the police station. But as you are cycling home, a wave of doubt crosses your mind - was it really them?').pauseFor(1500).changeDelay(70).typeString("<br><br><span class='tGreen'>Yes, you successfully identified the perpetrator.</span>").pauseFor(2500).start()
-            output.changeDelay(25).typeString("<br><br><br><br>Thank you for playing Agony in Amsterdam. You can refresh the page to restart the game. Unfortunately, you didn't correctly identify who was responsible for Klaus' death.<br><br><span class='tGrey'>Game by</span><br>Sebastien Jensen<br><br><span class='tGrey'>Packages used</span><br>TypewriterJS<br><br><span class='tGrey'>Soundtrack from</span><br>Epidemic Sound").start()
+            output.changeDelay(25).typeString("<br><br><br><br>Thank you for playing Agony in Amsterdam. You can refresh the page to restart the game. Congratulations, you correctly identified who was responsible for Klaus' death.<br><br><span class='tGrey'>Game by</span><br>Sebastien Jensen<br><br><span class='tGrey'>Packages used</span><br>TypewriterJS<br><br><span class='tGrey'>Soundtrack from</span><br>Epidemic Sound").start()
           }
         }
         break
